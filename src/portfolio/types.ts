@@ -111,20 +111,32 @@ export type PortfolioMetadata = Readonly<{
 export type ThemeCssVariables = CSSProperties &
   Record<`--portfolio-${string}`, string>;
 
+export type PortfolioThemePalette = Readonly<{
+  page: string;
+  surface: string;
+  surfaceMuted: string;
+  ink: string;
+  text: string;
+  mutedText: string;
+  accent: string;
+  accentStrong: string;
+  softAccent: string;
+  border: string;
+  focus: string;
+  inverseSurface: string;
+  inverseText: string;
+  inverseMuted: string;
+  shadowCard: string;
+  shadowCardHover: string;
+  shadowHero: string;
+  shadowHeader: string;
+}>;
+
 export type PortfolioTheme = Readonly<{
   id: "editorial-blue";
-  colors: Readonly<{
-    page: string;
-    surface: string;
-    surfaceMuted: string;
-    ink: string;
-    text: string;
-    mutedText: string;
-    accent: string;
-    accentStrong: string;
-    softAccent: string;
-    border: string;
-    focus: string;
+  palettes: Readonly<{
+    light: PortfolioThemePalette;
+    dark: PortfolioThemePalette;
   }>;
   typography: Readonly<{
     display: string;

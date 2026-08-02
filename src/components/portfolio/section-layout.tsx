@@ -1,6 +1,6 @@
 import type { SectionId } from "@/portfolio/types";
 
-type SectionTone = "page" | "surface" | "muted" | "ink";
+type SectionTone = "page" | "surface" | "muted" | "inverse";
 
 type SectionLayoutProps = Readonly<{
   id: Exclude<SectionId, "hero">;
@@ -15,7 +15,7 @@ const toneClasses: Record<SectionTone, string> = {
   page: "bg-page text-text",
   surface: "bg-surface text-text",
   muted: "bg-surface-muted text-text",
-  ink: "bg-ink text-surface",
+  inverse: "bg-inverse-surface text-inverse-text",
 };
 
 export function SectionLayout({
@@ -26,7 +26,7 @@ export function SectionLayout({
   tone = "page",
   children,
 }: SectionLayoutProps) {
-  const isDark = tone === "ink";
+  const isInverse = tone === "inverse";
 
   return (
     <section
@@ -38,20 +38,22 @@ export function SectionLayout({
           <div className="flex items-center gap-3">
             <span
               className={`text-xs font-bold tracking-[0.2em] ${
-                isDark ? "text-soft-accent" : "text-accent-strong"
+                isInverse ? "text-inverse-muted" : "text-accent-strong"
               }`}
             >
               {index}
             </span>
             <span
               aria-hidden="true"
-              className={`h-px w-10 ${isDark ? "bg-soft-accent" : "bg-accent"}`}
+              className={`h-px w-10 ${
+                isInverse ? "bg-inverse-muted" : "bg-accent"
+              }`}
             />
           </div>
           {eyebrow ? (
             <p
               className={`mt-5 text-xs font-semibold uppercase tracking-[0.17em] ${
-                isDark ? "text-soft-accent" : "text-muted-text"
+                isInverse ? "text-inverse-muted" : "text-muted-text"
               }`}
             >
               {eyebrow}
@@ -59,7 +61,7 @@ export function SectionLayout({
           ) : null}
           <h2
             className={`mt-3 max-w-[12ch] font-serif text-4xl font-semibold leading-[1.05] tracking-[-0.035em] sm:text-5xl ${
-              isDark ? "text-surface" : "text-ink"
+              isInverse ? "text-inverse-text" : "text-ink"
             }`}
           >
             {heading}

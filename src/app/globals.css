@@ -2,22 +2,92 @@
 
 :root {
   color-scheme: light;
-  --portfolio-page: #f4f7fa;
-  --portfolio-surface: #fffcf7;
-  --portfolio-surface-muted: #eaf0f6;
-  --portfolio-ink: #10233f;
-  --portfolio-text: #172033;
-  --portfolio-muted-text: #526074;
-  --portfolio-accent: #2f67a8;
-  --portfolio-accent-strong: #255487;
-  --portfolio-soft-accent: #dce7f2;
-  --portfolio-border: #c8d4e1;
-  --portfolio-focus: #0b63ce;
-  --portfolio-font-display: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  --portfolio-font-body: ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --portfolio-shell: 72rem;
-  --portfolio-reading: 68ch;
+  --portfolio-page: var(--portfolio-light-page);
+  --portfolio-surface: var(--portfolio-light-surface);
+  --portfolio-surface-muted: var(--portfolio-light-surface-muted);
+  --portfolio-ink: var(--portfolio-light-ink);
+  --portfolio-text: var(--portfolio-light-text);
+  --portfolio-muted-text: var(--portfolio-light-muted-text);
+  --portfolio-accent: var(--portfolio-light-accent);
+  --portfolio-accent-strong: var(--portfolio-light-accent-strong);
+  --portfolio-soft-accent: var(--portfolio-light-soft-accent);
+  --portfolio-border: var(--portfolio-light-border);
+  --portfolio-focus: var(--portfolio-light-focus);
+  --portfolio-inverse-surface: var(--portfolio-light-inverse-surface);
+  --portfolio-inverse-text: var(--portfolio-light-inverse-text);
+  --portfolio-inverse-muted: var(--portfolio-light-inverse-muted);
+  --portfolio-shadow-card: var(--portfolio-light-shadow-card);
+  --portfolio-shadow-card-hover: var(--portfolio-light-shadow-card-hover);
+  --portfolio-shadow-hero: var(--portfolio-light-shadow-hero);
+  --portfolio-shadow-header: var(--portfolio-light-shadow-header);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --portfolio-page: var(--portfolio-dark-page);
+    --portfolio-surface: var(--portfolio-dark-surface);
+    --portfolio-surface-muted: var(--portfolio-dark-surface-muted);
+    --portfolio-ink: var(--portfolio-dark-ink);
+    --portfolio-text: var(--portfolio-dark-text);
+    --portfolio-muted-text: var(--portfolio-dark-muted-text);
+    --portfolio-accent: var(--portfolio-dark-accent);
+    --portfolio-accent-strong: var(--portfolio-dark-accent-strong);
+    --portfolio-soft-accent: var(--portfolio-dark-soft-accent);
+    --portfolio-border: var(--portfolio-dark-border);
+    --portfolio-focus: var(--portfolio-dark-focus);
+    --portfolio-inverse-surface: var(--portfolio-dark-inverse-surface);
+    --portfolio-inverse-text: var(--portfolio-dark-inverse-text);
+    --portfolio-inverse-muted: var(--portfolio-dark-inverse-muted);
+    --portfolio-shadow-card: var(--portfolio-dark-shadow-card);
+    --portfolio-shadow-card-hover: var(--portfolio-dark-shadow-card-hover);
+    --portfolio-shadow-hero: var(--portfolio-dark-shadow-hero);
+    --portfolio-shadow-header: var(--portfolio-dark-shadow-header);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --portfolio-page: var(--portfolio-light-page);
+  --portfolio-surface: var(--portfolio-light-surface);
+  --portfolio-surface-muted: var(--portfolio-light-surface-muted);
+  --portfolio-ink: var(--portfolio-light-ink);
+  --portfolio-text: var(--portfolio-light-text);
+  --portfolio-muted-text: var(--portfolio-light-muted-text);
+  --portfolio-accent: var(--portfolio-light-accent);
+  --portfolio-accent-strong: var(--portfolio-light-accent-strong);
+  --portfolio-soft-accent: var(--portfolio-light-soft-accent);
+  --portfolio-border: var(--portfolio-light-border);
+  --portfolio-focus: var(--portfolio-light-focus);
+  --portfolio-inverse-surface: var(--portfolio-light-inverse-surface);
+  --portfolio-inverse-text: var(--portfolio-light-inverse-text);
+  --portfolio-inverse-muted: var(--portfolio-light-inverse-muted);
+  --portfolio-shadow-card: var(--portfolio-light-shadow-card);
+  --portfolio-shadow-card-hover: var(--portfolio-light-shadow-card-hover);
+  --portfolio-shadow-hero: var(--portfolio-light-shadow-hero);
+  --portfolio-shadow-header: var(--portfolio-light-shadow-header);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --portfolio-page: var(--portfolio-dark-page);
+  --portfolio-surface: var(--portfolio-dark-surface);
+  --portfolio-surface-muted: var(--portfolio-dark-surface-muted);
+  --portfolio-ink: var(--portfolio-dark-ink);
+  --portfolio-text: var(--portfolio-dark-text);
+  --portfolio-muted-text: var(--portfolio-dark-muted-text);
+  --portfolio-accent: var(--portfolio-dark-accent);
+  --portfolio-accent-strong: var(--portfolio-dark-accent-strong);
+  --portfolio-soft-accent: var(--portfolio-dark-soft-accent);
+  --portfolio-border: var(--portfolio-dark-border);
+  --portfolio-focus: var(--portfolio-dark-focus);
+  --portfolio-inverse-surface: var(--portfolio-dark-inverse-surface);
+  --portfolio-inverse-text: var(--portfolio-dark-inverse-text);
+  --portfolio-inverse-muted: var(--portfolio-dark-inverse-muted);
+  --portfolio-shadow-card: var(--portfolio-dark-shadow-card);
+  --portfolio-shadow-card-hover: var(--portfolio-dark-shadow-card-hover);
+  --portfolio-shadow-hero: var(--portfolio-dark-shadow-hero);
+  --portfolio-shadow-header: var(--portfolio-dark-shadow-header);
 }
 
 @theme inline {
@@ -32,6 +102,9 @@
   --color-soft-accent: var(--portfolio-soft-accent);
   --color-border: var(--portfolio-border);
   --color-focus: var(--portfolio-focus);
+  --color-inverse-surface: var(--portfolio-inverse-surface);
+  --color-inverse-text: var(--portfolio-inverse-text);
+  --color-inverse-muted: var(--portfolio-inverse-muted);
   --font-sans: var(--portfolio-font-body);
   --font-serif: var(--portfolio-font-display);
   --container-shell: var(--portfolio-shell);
@@ -128,6 +201,35 @@ dd {
 
   .editorial-hero::before {
     left: 1.25rem;
+  }
+}
+
+@media print {
+  :root,
+  :root[data-theme] {
+    color-scheme: light;
+    --portfolio-page: var(--portfolio-light-page);
+    --portfolio-surface: var(--portfolio-light-surface);
+    --portfolio-surface-muted: var(--portfolio-light-surface-muted);
+    --portfolio-ink: var(--portfolio-light-ink);
+    --portfolio-text: var(--portfolio-light-text);
+    --portfolio-muted-text: var(--portfolio-light-muted-text);
+    --portfolio-accent: var(--portfolio-light-accent);
+    --portfolio-accent-strong: var(--portfolio-light-accent-strong);
+    --portfolio-soft-accent: var(--portfolio-light-soft-accent);
+    --portfolio-border: var(--portfolio-light-border);
+    --portfolio-focus: var(--portfolio-light-focus);
+    --portfolio-inverse-surface: var(--portfolio-light-inverse-surface);
+    --portfolio-inverse-text: var(--portfolio-light-inverse-text);
+    --portfolio-inverse-muted: var(--portfolio-light-inverse-muted);
+    --portfolio-shadow-card: none;
+    --portfolio-shadow-card-hover: none;
+    --portfolio-shadow-hero: none;
+    --portfolio-shadow-header: none;
+  }
+
+  .theme-toggle {
+    display: none;
   }
 }
 

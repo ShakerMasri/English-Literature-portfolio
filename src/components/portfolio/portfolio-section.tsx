@@ -77,7 +77,7 @@ export function PortfolioSection({
             {content.education.map((entry, index) => (
               <article
                 key={`${entry.institution}-${entry.field}`}
-                className="group relative overflow-hidden border border-border bg-surface p-6 shadow-[0_18px_55px_rgba(16,35,63,0.06)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_24px_70px_rgba(16,35,63,0.1)] sm:p-9 motion-reduce:transform-none motion-reduce:transition-none"
+                className="group relative overflow-hidden border border-border bg-surface p-6 shadow-[var(--portfolio-shadow-card)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[var(--portfolio-shadow-card-hover)] sm:p-9 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <span
                   aria-hidden="true"
@@ -306,7 +306,7 @@ export function PortfolioSection({
         >
           <a
             href={content.cv.href}
-            className="inline-flex min-h-12 items-center border border-ink bg-ink px-6 py-3 font-semibold text-surface outline-none transition-colors duration-200 hover:bg-accent-strong focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-surface motion-reduce:transition-none"
+            className="inline-flex min-h-12 items-center border border-inverse-surface bg-inverse-surface px-6 py-3 font-semibold text-inverse-text outline-none transition-colors duration-200 hover:bg-accent-strong hover:text-surface focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-surface motion-reduce:transition-none"
           >
             {content.cv.label}
           </a>
@@ -320,10 +320,10 @@ export function PortfolioSection({
           index={index}
           heading={content.contact.heading}
           eyebrow="Professional profile"
-          tone="ink"
+          tone="inverse"
         >
           <div className="grid gap-9 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-            <p className="max-w-reading font-serif text-2xl leading-10 text-surface sm:text-3xl sm:leading-[1.45]">
+            <p className="max-w-reading font-serif text-2xl leading-10 text-inverse-text sm:text-3xl sm:leading-[1.45]">
               {content.contact.introduction}
             </p>
             <ul className="flex flex-wrap gap-4">
@@ -337,7 +337,7 @@ export function PortfolioSection({
                         ? "noreferrer noopener"
                         : undefined
                     }
-                    className="inline-flex min-h-12 items-center border border-soft-accent bg-surface px-6 py-3 font-semibold text-ink outline-none transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-soft-accent focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-ink motion-reduce:transform-none motion-reduce:transition-none"
+                    className="inline-flex min-h-12 items-center border border-inverse-muted bg-inverse-text px-6 py-3 font-semibold text-inverse-surface outline-none transition-[background-color,color,transform] duration-200 hover:-translate-y-0.5 hover:bg-inverse-muted focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-inverse-surface motion-reduce:transform-none motion-reduce:transition-none"
                   >
                     {link.label}
                   </a>
@@ -350,7 +350,9 @@ export function PortfolioSection({
   }
 }
 
-function HeroSection({ portfolio }: Readonly<{ portfolio: PortfolioDefinition }>) {
+function HeroSection({
+  portfolio,
+}: Readonly<{ portfolio: PortfolioDefinition }>) {
   const { content } = portfolio;
 
   return (
@@ -375,9 +377,7 @@ function HeroSection({ portfolio }: Readonly<{ portfolio: PortfolioDefinition }>
             <p className="max-w-[34ch] text-pretty text-xl leading-8 text-text sm:text-2xl sm:leading-10">
               {content.hero.summary}
             </p>
-            <p className="max-w-sm text-sm leading-7 text-muted-text sm:text-base">
-              {content.hero.opportunityFocus}
-            </p>
+            <p className="max-w-sm text-sm leading-7 text-muted-text sm:text-base"></p>
           </div>
 
           <a
@@ -388,7 +388,7 @@ function HeroSection({ portfolio }: Readonly<{ portfolio: PortfolioDefinition }>
           </a>
         </div>
 
-        <aside className="relative z-10 border border-border bg-surface/90 p-6 shadow-[0_28px_90px_rgba(16,35,63,0.12)] sm:p-8 lg:translate-y-8">
+        <aside className="relative z-10 border border-border bg-surface/90 p-6 shadow-[var(--portfolio-shadow-hero)] sm:p-8 lg:translate-y-8">
           <div className="flex items-center justify-between gap-4 border-b border-border pb-5">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-strong">
               Profile
