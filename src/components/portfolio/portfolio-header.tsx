@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 import type { NavigationItem, PortfolioContent } from "@/portfolio/types";
 
 type PortfolioHeaderProps = Readonly<{
@@ -10,8 +11,8 @@ export function PortfolioHeader({
   navigationItems,
 }: PortfolioHeaderProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface/95 shadow-[0_1px_0_rgba(16,35,63,0.03)] backdrop-blur-sm">
-      <div className="mx-auto grid w-full max-w-shell gap-3 px-5 py-3 sm:px-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-8 lg:px-12 lg:py-4">
+    <header className="sticky top-0 z-40 border-b border-border bg-surface/95 shadow-[var(--portfolio-shadow-header)] backdrop-blur-sm">
+      <div className="mx-auto grid w-full max-w-shell grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-3 px-5 py-3 sm:px-8 lg:grid-cols-[minmax(0,1fr)_auto_auto] lg:gap-x-4 lg:px-12 lg:py-4">
         <a
           href="#top"
           className="group inline-flex min-h-11 min-w-0 items-center gap-3 rounded-sm outline-none focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-surface"
@@ -19,7 +20,7 @@ export function PortfolioHeader({
         >
           <span
             aria-hidden="true"
-            className="grid size-9 shrink-0 place-items-center border border-ink bg-ink font-serif text-base font-semibold text-surface transition-colors duration-200 group-hover:bg-accent-strong motion-reduce:transition-none"
+            className="grid size-9 shrink-0 place-items-center border border-inverse-surface bg-inverse-surface font-serif text-base font-semibold text-inverse-text transition-colors duration-200 group-hover:border-accent-strong group-hover:bg-accent-strong group-hover:text-surface motion-reduce:transition-none"
           >
             {identity.name.charAt(0)}
           </span>
@@ -33,10 +34,14 @@ export function PortfolioHeader({
           </span>
         </a>
 
+        <div className="justify-self-end lg:col-start-2">
+          <ThemeToggle />
+        </div>
+
         {navigationItems.length > 0 ? (
           <nav
             aria-label="Primary navigation"
-            className="-mx-5 overflow-x-auto px-5 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:mx-0 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden"
+            className="col-span-2 -mx-5 overflow-x-auto px-5 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:col-span-1 lg:col-start-3 lg:row-start-1 lg:mx-0 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden"
           >
             <ul className="flex w-max min-w-full items-center gap-1 lg:min-w-0 lg:justify-end">
               {navigationItems.map((item) => (

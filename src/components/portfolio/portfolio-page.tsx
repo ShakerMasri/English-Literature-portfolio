@@ -21,7 +21,7 @@ export function PortfolioPage({ portfolio }: PortfolioPageProps) {
     <>
       <a
         href="#main-content"
-        className="sr-only z-50 bg-ink px-4 py-3 font-semibold text-surface outline-none focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-page"
+        className="sr-only z-50 bg-inverse-surface px-4 py-3 font-semibold text-inverse-text outline-none focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-3 focus-visible:ring-offset-page"
       >
         Skip to main content
       </a>
@@ -52,13 +52,14 @@ export function PortfolioPage({ portfolio }: PortfolioPageProps) {
         })}
       </main>
 
-      <footer className="bg-ink text-surface">
-        <div className="mx-auto flex w-full max-w-shell flex-col gap-2 border-t border-soft-accent/30 px-5 py-7 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+      <footer className="bg-inverse-surface text-inverse-text">
+        <div className="mx-auto flex w-full max-w-shell flex-col gap-2 border-t border-inverse-muted/30 px-5 py-7 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
           <p className="font-serif text-base font-semibold">
             {portfolio.content.identity.name}
           </p>
-          <p className="text-soft-accent">
-            {portfolio.content.identity.role} · {portfolio.content.identity.institution}
+          <p className="text-inverse-muted">
+            {portfolio.content.identity.role} ·{" "}
+            {portfolio.content.identity.institution}
           </p>
         </div>
       </footer>
