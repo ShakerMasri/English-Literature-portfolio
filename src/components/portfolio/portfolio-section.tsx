@@ -1,5 +1,9 @@
 import { SectionLayout } from "@/components/portfolio/section-layout";
-import type { PortfolioDefinition, SectionId } from "@/portfolio/types";
+import type {
+  ExperienceEntry,
+  PortfolioDefinition,
+  SectionId,
+} from "@/portfolio/types";
 
 type PortfolioSectionProps = Readonly<{
   section: SectionId;
@@ -154,30 +158,23 @@ export function PortfolioSection({
           id="experience"
           index={index}
           heading="Experience"
-          eyebrow="Selected work"
+          eyebrow="Professional experience"
           tone="surface"
         >
-          <div className="grid gap-5">
-            {content.experience.map((entry) => (
-              <article
-                key={`${entry.organization}-${entry.title}-${entry.startDate}`}
-                className="border border-border bg-page p-6 sm:p-8"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-strong">
-                  {entry.category.replaceAll("-", " ")}
-                </p>
-                <h3 className="mt-3 font-serif text-2xl font-semibold text-ink">
-                  {entry.title}
-                </h3>
-                <p className="mt-2 font-medium text-accent-strong">
-                  {entry.organization}
-                </p>
-                <p className="mt-5 max-w-reading leading-7 text-text">
-                  {entry.summary}
-                </p>
-              </article>
-            ))}
-          </div>
+          <ExperienceList entries={content.experience} />
+        </SectionLayout>
+      );
+
+    case "volunteering":
+      return (
+        <SectionLayout
+          id="volunteering"
+          index={index}
+          heading="Volunteering & activities"
+          eyebrow="Community & student involvement"
+          tone="page"
+        >
+          <ExperienceList entries={content.volunteering} />
         </SectionLayout>
       );
 
@@ -261,7 +258,7 @@ export function PortfolioSection({
                 </p>
                 {language.level ? (
                   <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-muted-text">
-                    Level {language.level}
+                    {language.level}
                   </p>
                 ) : null}
               </li>
@@ -275,20 +272,37 @@ export function PortfolioSection({
         <SectionLayout
           id="certificates"
           index={index}
-          heading="Certificates"
-          eyebrow="Additional learning"
+          heading="Certifications & workshops"
+          eyebrow="Training & recognition"
           tone="muted"
         >
-          <div className="grid gap-5">
+          <div className="grid gap-5 xl:grid-cols-2">
             {content.certificates.map((certificate) => (
               <article
                 key={`${certificate.issuer}-${certificate.title}`}
                 className="border border-border bg-surface p-6 sm:p-8"
               >
-                <h3 className="font-serif text-2xl font-semibold text-ink">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-strong">
+                    {certificate.kind}
+                  </p>
+                  {certificate.date ? (
+                    <p className="text-sm font-medium text-muted-text">
+                      {certificate.date}
+                    </p>
+                  ) : null}
+                </div>
+                <h3 className="mt-4 font-serif text-2xl font-semibold leading-tight text-ink">
                   {certificate.title}
                 </h3>
-                <p className="mt-2 text-muted-text">{certificate.issuer}</p>
+                <p className="mt-2 font-medium text-accent-strong">
+                  {certificate.issuer}
+                </p>
+                {certificate.summary ? (
+                  <p className="mt-5 max-w-reading leading-7 text-text">
+                    {certificate.summary}
+                  </p>
+                ) : null}
               </article>
             ))}
           </div>
@@ -350,6 +364,57 @@ export function PortfolioSection({
   }
 }
 
+function ExperienceList({
+  entries,
+}: Readonly<{ entries: readonly ExperienceEntry[] }>) {
+  return (
+    <div className="grid gap-5">
+      {entries.map((entry) => (
+        <article
+          key={`${entry.organization}-${entry.title}-${entry.period ?? "undated"}`}
+          className="border border-border bg-page p-6 sm:p-8"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent-strong">
+              {entry.category.replaceAll("-", " ")}
+            </p>
+            {entry.period ? (
+              <p className="text-sm font-medium text-muted-text">
+                {entry.period}
+              </p>
+            ) : null}
+          </div>
+          <h3 className="mt-3 font-serif text-2xl font-semibold leading-tight text-ink">
+            {entry.title}
+          </h3>
+          <p className="mt-2 font-medium text-accent-strong">
+            {entry.organization}
+          </p>
+          <p className="mt-5 max-w-reading leading-7 text-text">
+            {entry.summary}
+          </p>
+          {entry.details?.length ? (
+            <ul className="mt-5 max-w-reading space-y-3 text-sm leading-6 text-muted-text sm:text-base sm:leading-7">
+              {entry.details.map((detail) => (
+                <li
+                  key={detail}
+                  className="grid grid-cols-[0.55rem_1fr] items-start gap-3"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-[0.6rem] size-1.5 rounded-full bg-accent"
+                  />
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function HeroSection({
   portfolio,
 }: Readonly<{ portfolio: PortfolioDefinition }>) {
@@ -377,7 +442,9 @@ function HeroSection({
             <p className="max-w-[34ch] text-pretty text-xl leading-8 text-text sm:text-2xl sm:leading-10">
               {content.hero.summary}
             </p>
-            <p className="max-w-sm text-sm leading-7 text-muted-text sm:text-base"></p>
+            <p className="max-w-sm text-sm leading-7 text-muted-text sm:text-base">
+              {content.hero.opportunityFocus}
+            </p>
           </div>
 
           <a

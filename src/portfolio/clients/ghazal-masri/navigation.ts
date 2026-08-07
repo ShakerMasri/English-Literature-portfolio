@@ -5,9 +5,9 @@ export const ghazalMasriNavigation = [
   { section: "education", label: "Education" },
   { section: "interests", label: "Interests" },
   { section: "experience", label: "Experience" },
+  { section: "volunteering", label: "Volunteering" },
   { section: "skills", label: "Skills" },
   { section: "languages", label: "Languages" },
   { section: "certificates", label: "Certificates" },
-  { section: "cv", label: "CV" },
   { section: "contact", label: "Contact" },
 ] satisfies readonly NavigationItem[];

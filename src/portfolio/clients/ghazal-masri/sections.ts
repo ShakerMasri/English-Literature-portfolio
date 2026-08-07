@@ -7,10 +7,10 @@ export const ghazalMasriSections = {
     "education",
     "interests",
     "experience",
+    "volunteering",
     "skills",
     "languages",
     "certificates",
-    "cv",
     "contact",
   ],
   order: [
@@ -19,10 +19,10 @@ export const ghazalMasriSections = {
     "education",
     "interests",
     "experience",
+    "volunteering",
     "skills",
     "languages",
     "certificates",
-    "cv",
     "contact",
   ],
 } satisfies PortfolioSections;
