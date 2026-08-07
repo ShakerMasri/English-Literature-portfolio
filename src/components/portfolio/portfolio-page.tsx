@@ -53,14 +53,16 @@ export function PortfolioPage({ portfolio }: PortfolioPageProps) {
       </main>
 
       <footer className="bg-inverse-surface text-inverse-text">
-        <div className="mx-auto flex w-full max-w-shell flex-col gap-2 border-t border-inverse-muted/30 px-5 py-7 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
-          <p className="font-serif text-base font-semibold">
-            {portfolio.content.identity.name}
-          </p>
-          <p className="text-inverse-muted">
-            {portfolio.content.identity.role} ·{" "}
-            {portfolio.content.identity.institution}
-          </p>
+        <div className="mx-auto w-full max-w-shell border-t border-inverse-muted/30 px-5 py-7 text-sm sm:px-8 lg:px-12">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p className="font-serif text-base font-semibold">
+              {portfolio.content.identity.name}
+            </p>
+            <p className="text-inverse-muted">
+              {portfolio.content.identity.role} ·{" "}
+              {portfolio.content.identity.institution}
+            </p>
+          </div>
         </div>
       </footer>
     </>
