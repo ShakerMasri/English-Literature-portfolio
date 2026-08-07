@@ -6,6 +6,7 @@ export type SectionId =
   | "education"
   | "interests"
   | "experience"
+  | "volunteering"
   | "skills"
   | "languages"
   | "certificates"
@@ -34,9 +35,9 @@ export type ExperienceEntry = Readonly<{
   title: string;
   organization: string;
   category: "academic" | "volunteering" | "student-activity" | "work";
-  startDate: string;
-  endDate?: string;
+  period?: string;
   summary: string;
+  details?: readonly string[];
 }>;
 
 export type SkillGroup = Readonly<{
@@ -50,9 +51,11 @@ export type LanguageEntry = Readonly<{
 }>;
 
 export type CertificateEntry = Readonly<{
+  kind: "certificate" | "workshop";
   title: string;
   issuer: string;
   date?: string;
+  summary?: string;
   credentialUrl?: string;
 }>;
 
@@ -86,6 +89,7 @@ export type PortfolioContent = Readonly<{
   education: readonly EducationEntry[];
   interests: readonly InterestItem[];
   experience: readonly ExperienceEntry[];
+  volunteering: readonly ExperienceEntry[];
   skillGroups: readonly SkillGroup[];
   languages: readonly LanguageEntry[];
   certificates: readonly CertificateEntry[];

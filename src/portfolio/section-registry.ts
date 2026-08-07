@@ -21,6 +21,8 @@ function hasSectionContent(
       return content.interests.length > 0;
     case "experience":
       return content.experience.length > 0;
+    case "volunteering":
+      return content.volunteering.length > 0;
     case "skills":
       return content.skillGroups.some((group) => group.items.length > 0);
     case "languages":

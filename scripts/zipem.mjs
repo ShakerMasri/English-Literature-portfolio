@@ -21,11 +21,6 @@ const stagingDir = resolve(repoRoot, ".tmp-portfolio-checkpoint-files");
 
 const filesToZip = [
   "package.json",
-  "package-lock.json",
-  "next.config.ts",
-  "tsconfig.json",
-  "eslint.config.mjs",
-  "postcss.config.mjs",
   "src/app/globals.css",
   "src/app/layout.tsx",
   "src/app/page.tsx",
@@ -33,6 +28,8 @@ const filesToZip = [
   "src/components/portfolio/portfolio-page.tsx",
   "src/components/portfolio/portfolio-section.tsx",
   "src/components/portfolio/section-layout.tsx",
+  "src/components/theme/theme-constants.ts",
+  "src/components/theme/theme-toggle.tsx",
   "src/portfolio/types.ts",
   "src/portfolio/section-registry.ts",
   "src/portfolio/clients/ghazal-masri/content.ts",
