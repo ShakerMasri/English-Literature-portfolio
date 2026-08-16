@@ -110,6 +110,7 @@ export type PortfolioMetadata = Readonly<{
   title: string;
   description: string;
   locale: "en";
+  siteUrl: `https://${string}`;
 }>;
 
 export type ThemeCssVariables = CSSProperties &

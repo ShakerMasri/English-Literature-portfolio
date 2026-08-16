@@ -81,10 +81,6 @@ export function ThemeToggle() {
   );
 
   const isDark = theme === "dark";
-  const nextTheme: ColorTheme = isDark ? "light" : "dark";
-  const accessibleLabel = theme
-    ? `Switch to ${nextTheme} mode`
-    : "Change color theme";
 
   function handleToggle() {
     const currentTheme = getDocumentTheme();
@@ -106,7 +102,7 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={handleToggle}
-      aria-label={accessibleLabel}
+      aria-label="Dark mode"
       aria-pressed={theme === null ? undefined : isDark}
       className="theme-toggle inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-accent bg-page px-3 text-sm font-semibold text-text outline-none transition-[background-color,border-color,color] duration-200 hover:border-accent hover:bg-soft-accent hover:text-ink focus-visible:ring-3 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface motion-reduce:transition-none"
     >

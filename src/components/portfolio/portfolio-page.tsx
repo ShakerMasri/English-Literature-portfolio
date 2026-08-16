@@ -31,7 +31,7 @@ export function PortfolioPage({ portfolio }: PortfolioPageProps) {
         navigationItems={navigationItems}
       />
 
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         {renderableSections.map((section) => {
           const contentIndex = renderableSections
             .slice(0, renderableSections.indexOf(section) + 1)
