@@ -3,9 +3,27 @@ import { THEME_STORAGE_KEY } from "@/components/theme/theme-constants";
 import { ghazalMasriPortfolio } from "@/portfolio/clients/ghazal-masri";
 import "./globals.css";
 
+const siteUrl = new URL(ghazalMasriPortfolio.metadata.siteUrl);
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: ghazalMasriPortfolio.metadata.title,
   description: ghazalMasriPortfolio.metadata.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    title: ghazalMasriPortfolio.metadata.title,
+    description: ghazalMasriPortfolio.metadata.description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: ghazalMasriPortfolio.metadata.title,
+    description: ghazalMasriPortfolio.metadata.description,
+  },
 };
 
 const themeInitializationScript = `

@@ -5,4 +5,5 @@ export const ghazalMasriMetadata = {
   description:
     "Portfolio of Ghazal Masri, an English Literature student at An-Najah National University, featuring academic interests, translation and volunteer experience, skills, languages, and training.",
   locale: "en",
+  siteUrl: "https://ghazalmasri.shakerweb.com",
 } satisfies PortfolioMetadata;

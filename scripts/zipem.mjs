@@ -20,9 +20,11 @@ const outputPath = resolve(repoRoot, outputName);
 const stagingDir = resolve(repoRoot, ".tmp-portfolio-checkpoint-files");
 
 const filesToZip = [
-  "src/components/portfolio/portfolio-header.tsx",
-  "src/components/theme/theme-toggle.tsx",
-  "src/app/globals.css",
+  "public/file.svg",
+  "public/globe.svg",
+  "public/next.svg",
+  "public/vercel.svg",
+  "public/window.svg",
 ];
 
 function isInside(parent, child) {
